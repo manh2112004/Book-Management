@@ -1,4 +1,4 @@
-package org.example.bookservice.command.model;
+package org.example.bookservice.command.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookRequestModel {
+public class BookDeleteEvent {
     private String id;
-    private String name;
-    private String author;
-    private Boolean isReady;
 }
