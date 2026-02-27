@@ -1,8 +1,8 @@
-package org.example.bookservice.commnad.controller;
+package org.example.bookservice.command.controller;
 
 import org.axonframework.commandhandling.gateway.CommandGateway;
-import org.example.bookservice.commnad.command.CreateBookCommand;
-import org.example.bookservice.commnad.model.BookRequestModel;
+import org.example.bookservice.command.command.CreateBookCommand;
+import org.example.bookservice.command.model.BookRequestModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +21,7 @@ public class BookCommandController {
         CreateBookCommand command=new CreateBookCommand( UUID.randomUUID().toString(),
                 model.getName(),
                 model.getAuthor(),
-                model.getIsReady());
+                true);
         return commandGateway.sendAndWait(command);
     }
 }
