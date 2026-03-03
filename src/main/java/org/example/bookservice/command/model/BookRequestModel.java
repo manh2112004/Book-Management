@@ -1,9 +1,12 @@
 package org.example.bookservice.command.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 @Getter
 @Setter
@@ -11,7 +14,12 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BookRequestModel {
     private String id;
+
+    @NotBlank(message = "Name is mandatory")
+    @Length(min = 2,max = 30,message = "Name must be between 2 and 30 characters")
     private String name;
+
+    @NotBlank(message = "Author is mandatory")
     private String author;
     private Boolean isReady;
 }

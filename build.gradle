@@ -15,6 +15,7 @@ java {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 ext {
@@ -26,7 +27,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-    // ✅ Eureka CLIENT (đúng vai trò)
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
     runtimeOnly 'com.h2database:h2'
@@ -39,6 +39,9 @@ dependencies {
 
     implementation "org.axonframework:axon-spring-boot-starter:$axonVersion"
     implementation 'com.google.guava:guava:33.0.0-jre'
+    implementation 'org.example:CommonService:1.0-SNAPSHOT'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 dependencyManagement {

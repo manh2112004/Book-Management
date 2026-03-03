@@ -1,5 +1,6 @@
 package org.example.bookservice.command.controller;
 
+import jakarta.validation.Valid;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.example.bookservice.command.command.CreateBookCommand;
 import org.example.bookservice.command.command.DeleteBookCommand;
@@ -16,7 +17,7 @@ public class BookCommandController {
     @Autowired
     private CommandGateway commandGateway;
     @PostMapping
-    public String addBook(@RequestBody BookRequestModel model){
+    public String addBook(@Valid @RequestBody BookRequestModel model){
         CreateBookCommand command=new CreateBookCommand( UUID.randomUUID().toString(),
                 model.getName(),
                 model.getAuthor(),
